@@ -8,6 +8,7 @@ import java.util.Stack;
  * 递归和非递归方法实现汉诺塔，从左到右移动，不能直接从左到 右或者从右到左
  * @author Valiant
  *
+ * 解题关键思想：
  */
 public class Hanno {
 	private final String LEFT = "letf";

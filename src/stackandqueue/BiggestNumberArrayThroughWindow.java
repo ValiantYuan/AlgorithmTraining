@@ -8,6 +8,10 @@ import java.util.Stack;
  * 实现一个函数：
  * 输入：整形数组arr，窗口大小为w
  * 输出：一个长度为n-w+1的数组res, res[i]表示每一种窗口状态下的最大值
+ * 
+ * 解题关键思想：
+ * 
+ * 
  * @author Valiant
  *
  */

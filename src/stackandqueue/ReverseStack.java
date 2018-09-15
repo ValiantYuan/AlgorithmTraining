@@ -5,7 +5,9 @@ import java.util.Stack;
 /**
  * 用递归函数和栈操作逆序一个栈
  * @author Valiant
- *
+ * 解题关键思想：
+ * 正常的pop方法，只能获取到最后入栈的数，为了逆序一个栈，必须能获取到最先入栈的数，所以需要对pop操作进行包装，让stack返回并移出最先入栈的值
+ * 
  */
 public class ReverseStack {
 	
