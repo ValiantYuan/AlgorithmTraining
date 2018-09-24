@@ -30,6 +30,14 @@ public class Hanno {
 		return move(num, from, to);
 	}
 	
+	
+	/**
+	 * 递归的方法解决汉诺塔问题
+	 * @param num
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public int move(int num, String from, String to) {
 		if(num == 1) {
 			if(from.equals(MID) || to.equals(MID)) {
@@ -59,6 +67,13 @@ public class Hanno {
 		}
 	}
 	
+	/**
+	 * 非递归方法解决
+	 * @param num
+	 * @param from
+	 * @param to
+	 * @return
+	 */
 	public int haniProblem2(int num, String from, String to) {
 		Stack<Integer> lStack = new Stack<>();
 		Stack<Integer> mStack = new Stack<>();
