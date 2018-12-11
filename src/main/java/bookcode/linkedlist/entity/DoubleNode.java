@@ -1,4 +1,4 @@
-package linkedlist.entity;
+package bookcode.linkedlist.entity;
 
 public class DoubleNode {
 	public int value;

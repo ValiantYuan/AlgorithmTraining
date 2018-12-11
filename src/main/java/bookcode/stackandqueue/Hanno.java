@@ -1,4 +1,4 @@
-package stackandqueue;
+package bookcode.stackandqueue;
 
 import java.util.ArrayList;
 import java.util.Deque;

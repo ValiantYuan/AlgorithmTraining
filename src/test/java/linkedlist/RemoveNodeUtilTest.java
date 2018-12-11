@@ -4,7 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import linkedlist.entity.Node;
+import bookcode.linkedlist.RemoveNodeUtil;
+import bookcode.linkedlist.entity.Node;
 
 public class RemoveNodeUtilTest {
 

@@ -1,4 +1,4 @@
-package stackandqueue;
+package bookcode.stackandqueue;
 
 import java.awt.image.RescaleOp;
 import java.util.LinkedList;
