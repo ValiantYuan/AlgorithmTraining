@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import javax.xml.soap.Node;
-
 /**
  * 一个没有重复数据的数组
  * MaxTree是一棵二叉树，数组的没一个值对应二叉树的一个节点
