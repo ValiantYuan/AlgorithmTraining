@@ -2,12 +2,11 @@ package linkedlist;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
-import linkedlist.entity.DoubleNode;
-import linkedlist.entity.Node;
+import bookcode.linkedlist.RemoveLastKthNode;
+import bookcode.linkedlist.entity.DoubleNode;
+import bookcode.linkedlist.entity.Node;
 public class RemoveLastKthNodeTest {
 
 	@Test
