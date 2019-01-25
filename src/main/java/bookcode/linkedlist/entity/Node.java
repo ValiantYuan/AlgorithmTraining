@@ -6,6 +6,10 @@ public class Node {
 	public Node next;
 	public Node(int value) {
 		this.value = value;
+		next = null;
+	}
+	public Node() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public static String printLinkedNodeListValue(Node head) {

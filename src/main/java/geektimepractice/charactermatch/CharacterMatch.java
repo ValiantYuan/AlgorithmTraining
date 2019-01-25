@@ -1,5 +1,7 @@
 package geektimepractice.charactermatch;
 
+import sun.nio.cs.ext.IBM037;
+
 /**
  * 
  * @author Valiant
@@ -123,5 +125,52 @@ public class CharacterMatch {
 				prefix[k] = true;
 			}
 		}
+	}
+
+
+	/**
+	 * 失效函数
+	 * @param b
+	 * @param m
+	 * @return
+	 */
+	private static int[] getNexts(char[] b, int m) {
+		int[] next = new int[m];
+		//当子串长度为1时，不存在子串，直接赋值为-1
+		int k = -1;
+		next[0] = -1;
+		for (int i = 1; i < m; i++) {
+			//如果子串长度增加一，且增加的值与最长后缀子串匹配的前缀子串的后一位不同，则递归判断次长匹配子串是否满足条件，而次长匹配子串，可以根据最长匹配子串的next[k]数组来定位，如果最终还是无法定位，k值将会为-1，即没有可以匹配的子串
+			while(k > 0 && b[i] != b[k + 1]) {
+				k = next[k];
+			}
+			//如果子串长度增加一，且增加的值与最长后缀子串匹配的前缀子串的后一位相同，则匹配的最长后缀子串长度加一，匹配最长前缀子串的位置后移一位，即k++
+			if (b[i] == b[k + 1]) {
+				k++;
+			}
+			next[i] = k;
+		}
+		return next;
+	}
+	
+	public static int kmp(char[] a, int n, char[] b, int m) {
+		int[] next = getNexts(b, m);
+		int j = 0;
+		for (int i = 0; i < n; i++) {
+			//遇到不匹配的值时，且j != 0时，根据好前缀的长度j - 1来决定，模式串中下一个开始比较的位置j = next[j - 1] + 1，当next[]为-1时，即把模式串整体移动到当前i的位置进行匹配
+			while(j > 0 && a[i] != b[j]) {
+				j = next[j - 1] + 1;
+			}
+			//当前比较相同时，模式串和主串都往后移动一位
+			if (a[i] == b[j]) {
+				//当长度满足子串长度时，返回子串在主串中的起始位置
+				if (j == m - 1) {
+					return i - m + 1;
+				}
+				j++;
+			}
+
+		}
+		return -1;
 	}
 }
