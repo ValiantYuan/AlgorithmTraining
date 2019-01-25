@@ -3,10 +3,6 @@ package geektimepractice.graph;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
-
-import sun.print.PSPrinterJob.PluginPrinter;
-
 /**
  * 
  * @author valiant
@@ -42,24 +38,39 @@ public class Graph {
 		if (s == t) {
 			return;
 		}
-		
 		boolean[] visited = new boolean[v];
 		int[] prev = new int[v];
 		for (int i = 0; i < prev.length; i++) {
 			prev[i] = -1;
 		}
-		
-		visited[s] = true;
-		for (int i = 0; i < adj[s].size(); i++) {
-			if (!found) {
-				
-			}
-			recursiveDfs(s, t, visited, prev);
-		}
+		recursiveDfs(s, t, visited, prev);
+		print(s, t, prev);
+
 	}
-	
+	/**
+	 * 
+	 * @param s
+	 * @param t
+	 * @param visited
+	 * @param prev
+	 */
 	private void recursiveDfs(int s, int t, boolean[] visited, int[] prev) {
-		
+		if (s == t) {
+			found = true;
+			return;
+		}
+		visited[s] = true;
+		//遍历当前顶点连接的所有未被访问的顶点，通过递归调用实现深度优先，注意与广度优先的区别
+		for (int i = 0; i < adj[s].size(); i++) {
+			if (found) {
+				break;
+			}
+			int q = adj[s].get(i);
+			if (!visited[q]) {
+				prev[q] = s;
+				recursiveDfs(q, t, visited, prev);
+			}
+		}
 	}
 	
 	
