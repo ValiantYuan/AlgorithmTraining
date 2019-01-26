@@ -6,21 +6,21 @@ import javax.xml.soap.Node;
 
 import bookcode.linkedlist.entity.RandNode;
 /**
- * ¸´ÖÆº¬ÓĞËæ»úÖ¸Õë½ÚµãµÄÁ´±í
- * ½ø½×£º²»Ê¹ÓÃ¶îÍâµÄÊı¾İ½á¹¹
+ * å¤åˆ¶å«æœ‰éšæœºæŒ‡é’ˆèŠ‚ç‚¹çš„é“¾è¡¨
+ * è¿›é˜¶ï¼šä¸ä½¿ç”¨é¢å¤–çš„æ•°æ®ç»“æ„
  * @author Valiant
  *
  */
 public class CopyRandLinkedList {
 	/**
-	 * Ê±¼ä¸´ÔÓ¶ÈÎªO(N)£¬¶îÍâ¿Õ¼ä¸´ÔÓ¶ÈÎªO(N)£¬Ê¹ÓÃÁËÒ»¸öhashMap
+	 * æ—¶é—´å¤æ‚åº¦ä¸ºO(N)ï¼Œé¢å¤–ç©ºé—´å¤æ‚åº¦ä¸ºO(N)ï¼Œä½¿ç”¨äº†ä¸€ä¸ªhashMap
 	 * @param head
 	 * @return
 	 */
 	public RandNode copy(RandNode head) {
 		RandNode cur = head;
 		HashMap<RandNode, RandNode> map = new HashMap<>();
-		//Ê×ÏÈ¸´ÖÆ½ÚµãÖµ
+		//é¦–å…ˆå¤åˆ¶èŠ‚ç‚¹å€¼
 		while (cur != null) {
 			map.put(cur, new RandNode(cur.value));
 			cur = cur.next;
@@ -33,10 +33,10 @@ public class CopyRandLinkedList {
 		return map.get(head);
 	}
 	/**
-	 * ½ø½×·½·¨£º
-	 * 1.Ê×ÏÈ¸´ÖÆ½Úµã£¬Á¬½Óµ½Ô­½ÚµãÖĞ¼ä£¬²úÉúĞÂµÄÁ´±í
-	 * 2.±éÀúĞÂµÄÁ´±í£¬ÎªËùÓĞµÄrand¸´ÖÆ
-	 * 3.½«ĞÂ¾É½Úµã·ÖÀë¿ªÀ´£¬·µ»ØĞÂ½ÚµãÍ·
+	 * è¿›é˜¶æ–¹æ³•ï¼š
+	 * 1.é¦–å…ˆå¤åˆ¶èŠ‚ç‚¹ï¼Œè¿æ¥åˆ°åŸèŠ‚ç‚¹ä¸­é—´ï¼Œäº§ç”Ÿæ–°çš„é“¾è¡¨
+	 * 2.éå†æ–°çš„é“¾è¡¨ï¼Œä¸ºæ‰€æœ‰çš„randå¤åˆ¶
+	 * 3.å°†æ–°æ—§èŠ‚ç‚¹åˆ†ç¦»å¼€æ¥ï¼Œè¿”å›æ–°èŠ‚ç‚¹å¤´
 	 * @param head
 	 * @return
 	 */
@@ -46,7 +46,7 @@ public class CopyRandLinkedList {
 		}
 		RandNode cur = head;
 		RandNode next = null;
-		//¸´ÖÆ½Úµã²åÈëµ½¾É½Úµãºó
+		//å¤åˆ¶èŠ‚ç‚¹æ’å…¥åˆ°æ—§èŠ‚ç‚¹å
 		while (cur != null) {
 			next = cur.next;
 			cur.next = new RandNode(cur.value);
@@ -55,7 +55,7 @@ public class CopyRandLinkedList {
 		}
 		cur = head;
 		while (cur != null) {
-			//Èç¹ûrandÖµÎªnullÊÇ£¬ÊÇ²»ÄÜÖ±½Ó¸³ÖµÎªcur.rand.nextµÄ£¬»á³öÏÖ¿ÕÖ¸ÕëÒì³£
+			//å¦‚æœrandå€¼ä¸ºnullæ˜¯ï¼Œæ˜¯ä¸èƒ½ç›´æ¥èµ‹å€¼ä¸ºcur.rand.nextçš„ï¼Œä¼šå‡ºç°ç©ºæŒ‡é’ˆå¼‚å¸¸
 			cur.next.rand = cur.rand == null ? null : cur.rand.next;
 			cur = cur.next.next;
 		}

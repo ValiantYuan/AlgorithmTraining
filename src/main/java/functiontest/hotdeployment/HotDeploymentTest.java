@@ -9,8 +9,8 @@ public class HotDeploymentTest {
 		while (true) {
 			URLClassLoader classLoader = new URLClassLoader(new URL[] {classUrl});
 			/**
-			 *ÕâÀïÒª×¢Òâ£¬°üÃûÒ²ÊÇÀàÃûµÄÒ»²¿·Ö£¬ÔÚÖ´ĞĞÊ±£¬Ó¦¸Ã°ÑÀàµÄ°üÃû´øÉÏ
-			 *Í¬ÑùµÄ£¬ÔÚÃüÁîĞĞÖĞÖ´ĞĞjava³ÌĞòÊ±£¬Ò²ĞèÒª´øÉÏ°üÃû 
+			 *è¿™é‡Œè¦æ³¨æ„ï¼ŒåŒ…åä¹Ÿæ˜¯ç±»åçš„ä¸€éƒ¨åˆ†ï¼Œåœ¨æ‰§è¡Œæ—¶ï¼Œåº”è¯¥æŠŠç±»çš„åŒ…åå¸¦ä¸Š
+			 *åŒæ ·çš„ï¼Œåœ¨å‘½ä»¤è¡Œä¸­æ‰§è¡Œjavaç¨‹åºæ—¶ï¼Œä¹Ÿéœ€è¦å¸¦ä¸ŠåŒ…å 
 			 */
 			Class<?> clazz = classLoader.loadClass("hotdeployment.Hello");
 			Object instance = clazz.newInstance();

@@ -7,11 +7,11 @@ public class ReverseLinkedListPartly {
 	
 	public Node reversePartly(Node head, int from, int to) {
 		int len = 0;
-		//from½ÚµãÇ°Ò»¸ö½ÚµãµÄÒıÓÃ
+		//fromèŠ‚ç‚¹å‰ä¸€ä¸ªèŠ‚ç‚¹çš„å¼•ç”¨
 		Node fPre = null;
-		//toºóÒ»¸ö½ÚµãµÄÒıÓÃ
+		//toåä¸€ä¸ªèŠ‚ç‚¹çš„å¼•ç”¨
 		Node tPost = null;
-		//µ±Ç°½ÚµãµÄÒıÓÃ
+		//å½“å‰èŠ‚ç‚¹çš„å¼•ç”¨
 		Node node1 = head;
 		while (node1 != null) {
 			len++;
@@ -22,10 +22,10 @@ public class ReverseLinkedListPartly {
 		if (from > to || from < 1 || to > len) {
 			return head;
 		}
-		//Èç¹ûfromÊÇ±íÍ·£¬ÔòÒªÌØÊâ´¦Àí
+		//å¦‚æœfromæ˜¯è¡¨å¤´ï¼Œåˆ™è¦ç‰¹æ®Šå¤„ç†
 		
 		node1 = fPre == null ? head :fPre.next;
-		//·´×ªfromµ½toµÄ½Úµã
+		//åè½¬fromåˆ°toçš„èŠ‚ç‚¹
 		Node node2 = node1.next;
 		Node next = null;
 		node1.next = tPost;

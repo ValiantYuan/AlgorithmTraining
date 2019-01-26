@@ -5,14 +5,14 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * һ��û���ظ����ݵ�����
- * MaxTree��һ�ö������������ûһ��ֵ��Ӧ��������һ���ڵ�
- * ���������ĸ��ڵ㶼�����ֵ��
- * д�����������MaxTree�ĺ�����Ҫ��ʱ�临�Ӷ�ΪO(N)������ռ临�Ӷ�O(N)
+ * 一个没有重复数据的数组
+ * MaxTree是一棵二叉树，数组的没一个值对应二叉树的一个节点
+ * 所有子树的根节点都是最大值的
+ * 写出生产数组的MaxTree的函数，要求时间复杂度为O(N)，额外空间复杂度O(N)
  * @author Valiant
  * 
- * ����˼·��
- * �ҳ�һ������ߵ�һ����������������ұߵ�һ��������������бȽϣ�ȡ�ϴ������Ϊ���ڵ㣬���ڵ��������������
+ * 解题思路：
+ * 找出一个数左边第一个比它大的数，和右边第一个比它大的数进行比较，取较大的数作为父节点，父节点从左到右依次填满
  *
  */
 public class ArrayMaxTree {
@@ -33,8 +33,8 @@ public class ArrayMaxTree {
 		Stack<Node> stack = new Stack<>();
 		
 		/**
-		 * ��������������ջ������ÿ������ߵ�һ������������ŵ�map��
-		 * ������ɺ�ջ��ʣ���������ջ����ջ�����α�С��������Ҫ��������һ��ջ
+		 * 遍历数组依次入栈，并把每个数左边第一个比它大的数放到map中
+		 * 遍历完成后栈中剩余的数，从栈顶到栈底依次变小，所以需要单独遍历一次栈
 		 */
 		for (int i = 0; i < nodes.length; i++) {
 			Node currentNode = nodes[i];
@@ -47,8 +47,8 @@ public class ArrayMaxTree {
 			popNodeAndSetMap(stack, lMap);
 		}
 		/**
-		 * �����������������ջ������ÿ�����ұߵ�һ������������ŵ�map��
-		 * ������ɺ�ջ��ʣ���������ջ����ջ�����α�С��������Ҫ��������һ��ջ
+		 * 倒叙遍历数组依次入栈，并把每个数右边第一个比它大的数放到map中
+		 * 遍历完成后栈中剩余的数，从栈顶到栈底依次变小，所以需要单独遍历一次栈
 		 */
 		for (int i = nodes.length - 1; i >= 0; i--) {
 			Node currentNode = nodes[i];
@@ -62,18 +62,18 @@ public class ArrayMaxTree {
 		}
 		
 		/**
-		 * �����ÿ������ߵ�һ������ֵ���ұߵ�һ������ֵ�Ѿ�ȷ���������������������tree
+		 * 到这里，每个数左边第一个最大的值和右边第一个最大的值已经确定下来，接下来就是组成tree
 		 */
 		for (int i = 0; i < nodes.length; i++) {
 			Node currentNode = nodes[i];
 			Node lNode = lMap.get(currentNode);
 			Node rNode = rMap.get(currentNode);
-			//���ϴ�ֵΪnull
+			//左侧较大值为null
 			if (lNode == null) {
-				//�Ҳ�ϴ�ֵΪnull,��ǰ�ڵ�Ϊȫ�����ڵ㣬��ͷ���
+				//右侧较大值为null,则当前节点为全局最大节点，即头结点
 				if (rNode == null) {
 					head = currentNode;
-				} else {   //��ǰ�Ҳ�ϴ�ֵ�ڵ㲻Ϊnull����ýڵ�������Ҳ�Ϊ�յ��ӽڵ���Ϊ��ǰ�ڵ�
+				} else {   //当前右侧较大值节点不为null，则该节点从左往右不为空的子节点设为当前节点
 					if(rNode.left == null) {
 						rNode.left = currentNode;
 					} else {

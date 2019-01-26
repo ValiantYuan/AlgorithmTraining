@@ -9,9 +9,9 @@ import java.util.Queue;
  *
  */
 public class Graph {
-	private int v; //vertexµÄ¸öÊı
-	private LinkedList<Integer> adj[];//ÁÚ½Ó±í
-	boolean found = false;//Éî¶ÈÓÅÏÈµİ¹éÊ±ĞèÒªÓÃµ½found±êÖ¾À´ÖÕÖ¹µİ¹é
+	private int v; //vertexçš„ä¸ªæ•°
+	private LinkedList<Integer> adj[];//é‚»æ¥è¡¨
+	boolean found = false;//æ·±åº¦ä¼˜å…ˆé€’å½’æ—¶éœ€è¦ç”¨åˆ°foundæ ‡å¿—æ¥ç»ˆæ­¢é€’å½’
 	
 	
 	public Graph(int v) {
@@ -22,7 +22,7 @@ public class Graph {
 			adj[i] = new LinkedList<Integer>();
 		}
 	}
-	//°´ÕÕ´Ó±àºÅ½ÏĞ¡µÄ¶¥µãµ½±àºÅ½Ï´óµÄ¶¥µãµÄ·½Ê½Ìí¼Ó±ß
+	//æŒ‰ç…§ä»ç¼–å·è¾ƒå°çš„é¡¶ç‚¹åˆ°ç¼–å·è¾ƒå¤§çš„é¡¶ç‚¹çš„æ–¹å¼æ·»åŠ è¾¹
 	public void addEdge(int i, int j) {
 		if (i > j) {
 			System.out.println("please input the edge from smaller to bigger vertex");
@@ -32,7 +32,7 @@ public class Graph {
 		adj[j].add(i);
 	}
 	
-	//Éî¶ÈÓÅÏÈ±éÀúÍ¼,µİ¹éÊµÏÖ
+	//æ·±åº¦ä¼˜å…ˆéå†å›¾,é€’å½’å®ç°
 	public void dfs(int s, int t) {
 		// TODO Auto-generated method stub
 		if (s == t) {
@@ -60,7 +60,7 @@ public class Graph {
 			return;
 		}
 		visited[s] = true;
-		//±éÀúµ±Ç°¶¥µãÁ¬½ÓµÄËùÓĞÎ´±»·ÃÎÊµÄ¶¥µã£¬Í¨¹ıµİ¹éµ÷ÓÃÊµÏÖÉî¶ÈÓÅÏÈ£¬×¢ÒâÓë¹ã¶ÈÓÅÏÈµÄÇø±ğ
+		//éå†å½“å‰é¡¶ç‚¹è¿æ¥çš„æ‰€æœ‰æœªè¢«è®¿é—®çš„é¡¶ç‚¹ï¼Œé€šè¿‡é€’å½’è°ƒç”¨å®ç°æ·±åº¦ä¼˜å…ˆï¼Œæ³¨æ„ä¸å¹¿åº¦ä¼˜å…ˆçš„åŒºåˆ«
 		for (int i = 0; i < adj[s].size(); i++) {
 			if (found) {
 				break;
@@ -74,18 +74,18 @@ public class Graph {
 	}
 	
 	
-	//¹ã¶ÈÓÅÏÈ±éÀúÍ¼
+	//å¹¿åº¦ä¼˜å…ˆéå†å›¾
 	public void bfs(int s, int t) {
 		// TODO Auto-generated method stub
 		if (s == t) {
 			return;
 		}
-		//Êı×é¼ÇÂ¼¶ÔÓ¦±àºÅµÄ¶¥µãÊÇ·ñ±»·ÃÎÊ¹ı
+		//æ•°ç»„è®°å½•å¯¹åº”ç¼–å·çš„é¡¶ç‚¹æ˜¯å¦è¢«è®¿é—®è¿‡
 		boolean[] visited = new boolean[v];
 		visited[s] = true;
 		Queue<Integer> queue = new LinkedList<Integer>();
 		queue.add(s);
-		//¼ÇÂ¼¶ÔÓ¦±àºÅµÄ¶¥µãµÄÇ°Ò»¶¥µãÊÇÊ²Ã´£¬Êä³öÂ·¾¶Ê±Ê¹ÓÃ
+		//è®°å½•å¯¹åº”ç¼–å·çš„é¡¶ç‚¹çš„å‰ä¸€é¡¶ç‚¹æ˜¯ä»€ä¹ˆï¼Œè¾“å‡ºè·¯å¾„æ—¶ä½¿ç”¨
 		int[] prev = new int[v];
 		for (int i = 0; i < prev.length; i++) {
 			prev[i] = -1;
@@ -107,7 +107,7 @@ public class Graph {
 		}
 	}
 	
-	//µİ¹é´òÓ¡ s-->tµÄÂ·¾¶
+	//é€’å½’æ‰“å° s-->tçš„è·¯å¾„
 	private void print(int s, int t, int[] prev) {
 		if (s != t && prev[t] != -1) {
 			print(s, prev[t], prev);

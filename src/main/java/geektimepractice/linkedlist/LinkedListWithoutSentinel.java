@@ -11,7 +11,7 @@ Node head;
 	}
 	
 	/**
-	 * ����һ���ڵ�,���head�ǿգ���Ҫ���⴦��
+	 * 添加一个节点,如果head是空，需要特殊处理
 	 * @param node
 	 */
 	public void add(Node node) {
@@ -19,7 +19,7 @@ Node head;
 			head = node;
 			return;
 		}
-		//nextָ��ǰhead,next.next��Ϊ��ʱ��next����ƶ�һ���ڵ�
+		//next指向当前head,next.next不为空时，next向后移动一个节点
 		Node next = head;
 		while (next.next != null) {
 			next = next.next;
@@ -27,8 +27,8 @@ Node head;
 		next.next = node;
 	}
 	/**
-	 * ɾ��һ���ڵ�,���headΪ�գ�ֱ�ӷ��ػ��߷��ش�����Ҫ���⴦��
-	 * ���ɾ��ͷ�ڵ㣬��ɾ�����һ����Ч�ڵ㣬Ҳ��Ҫ���⴦��
+	 * 删除一个节点,如果head为空，直接返回或者返回错误，需要特殊处理
+	 * 如果删除头节点，即删除最后一个有效节点，也需要特殊处理
 	 * @param node
 	 */
 	public void delete(Node node) {
@@ -37,15 +37,15 @@ Node head;
 		}
 		Node cur = head;
 		Node pre = null;
-		//��ѯ������������ǰ�ڵ㲻���ڲ�ѯ�ڵ㣬����һ���ڵ㲻Ϊ��
+		//查询继续条件：当前节点不等于查询节点，且下一个节点不为空
 		while (cur != node && cur.next != null) {
 			pre = cur;
 			cur = cur.next;
 		}
 		/**
-		 * ��ѯ����������ҵ��ˣ���ǰ�ڵ���ڲ�ѯ�ڵ�
-		 * ���ɾ��ͷ�ڵ㣬�򷵻ؿյ�ͷ
-		 * ���û���ҵ�����ʲô������
+		 * 查询结束，如果找到了，则当前节点等于查询节点
+		 * 如果删除头节点，则返回空的头
+		 * 如果没有找到，则什么都不做
 		 */
 		if (cur == node) {
 			if (cur == head) {
@@ -57,7 +57,7 @@ Node head;
 		}
 	}
 	/**
-	 * �Ƿ�����ڵ㣬�����򷵻ص�һ��ƥ��Ľڵ�
+	 * 是否包含节点，包含则返回第一个匹配的节点
 	 * @param node
 	 * @return
 	 */
@@ -73,7 +73,7 @@ Node head;
 	}
 	
 	/**
-	 * ���ظ�ֵ���ڵĽڵ�
+	 * 返回该值所在的节点
 	 * @param value
 	 * @return
 	 */

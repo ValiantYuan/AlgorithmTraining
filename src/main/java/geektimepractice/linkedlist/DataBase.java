@@ -2,7 +2,7 @@ package geektimepractice.linkedlist;
 
 public interface DataBase {
 	/**
-	 * Ä£ÄâÊı¾İ¿â·µ»ØÊı¾İ
+	 * æ¨¡æ‹Ÿæ•°æ®åº“è¿”å›æ•°æ®
 	 * @return
 	 */
 	public default Object get() {

@@ -2,7 +2,7 @@ package geektimepractice.linkedlist;
 
 public interface LRU {
 	/**
-	 * 在缓存中访问节点，如果存在，则返回该节点，如果不存在，则通过模拟数据库获取值，插入到节点中
+	 * 鍦ㄧ紦瀛樹腑璁块棶鑺傜偣锛屽鏋滃瓨鍦紝鍒欒繑鍥炶鑺傜偣锛屽鏋滀笉瀛樺湪锛屽垯閫氳繃妯℃嫙鏁版嵁搴撹幏鍙栧�硷紝鎻掑叆鍒拌妭鐐逛腑
 	 * @param node
 	 * @return
 	 */
@@ -15,12 +15,12 @@ public interface LRU {
 		return result; 
 	}
 	/*
-	 * 数据是否在缓存中,在则返回该对象，不在则返回null
+	 * 鏁版嵁鏄惁鍦ㄧ紦瀛樹腑,鍦ㄥ垯杩斿洖璇ュ璞★紝涓嶅湪鍒欒繑鍥瀗ull
 	 */
 	public Object isIn(Object object);
 	
 	/**
-	 * 将对象加入到LRU中去
+	 * 灏嗗璞″姞鍏ュ埌LRU涓幓
 	 * @param object
 	 */
 	public void add(Object object);

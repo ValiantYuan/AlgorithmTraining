@@ -5,14 +5,14 @@ import java.util.Stack;
 import bookcode.linkedlist.entity.Node;
 
 /**
- * ½«µ¥ÏòÁ´±í°´Ä³Öµ»®·ÖÎª×ó±ßĞ¡¡¢ÖĞ¼äÏàµÈ¡¢ÓÒ±ß´óµÄĞÎÊ½
- * ½ø½×£º¶îÍâ¿Õ¼ä¸´ÔÓ¶ÈÎªO(1)
+ * å°†å•å‘é“¾è¡¨æŒ‰æŸå€¼åˆ’åˆ†ä¸ºå·¦è¾¹å°ã€ä¸­é—´ç›¸ç­‰ã€å³è¾¹å¤§çš„å½¢å¼
+ * è¿›é˜¶ï¼šé¢å¤–ç©ºé—´å¤æ‚åº¦ä¸ºO(1)
  * @author Valiant
  *
  */
 public class DevideLinkedList {
 	/**
-	 * Ê±¼ä¸´ÔÓ¶ÈÎªO(N), ¶îÍâ¿Õ¼ä¸´ÔÓ¶ÈÎªO(N)
+	 * æ—¶é—´å¤æ‚åº¦ä¸ºO(N), é¢å¤–ç©ºé—´å¤æ‚åº¦ä¸ºO(N)
 	 * @param head
 	 * @param pivot
 	 * @return
@@ -20,7 +20,7 @@ public class DevideLinkedList {
 	public Node DevideByStack(Node head, int pivot) {
 		Node newHead = null;
 		
-		//µ±Á´±íÎª¿Õ»òÕßÖ»ÓĞÒ»¸öÔªËØÊ±£¬Ö±½Ó·µ»Ø
+		//å½“é“¾è¡¨ä¸ºç©ºæˆ–è€…åªæœ‰ä¸€ä¸ªå…ƒç´ æ—¶ï¼Œç›´æ¥è¿”å›
 		if (head == null || head.next == null) {
 			return head;
 		}
@@ -29,7 +29,7 @@ public class DevideLinkedList {
 		Stack<Node> bigger = new Stack<>();
 		Stack<Node> same = new Stack<>(); 
 		Node cur = head;
-		//±éÀúÁ´±í°ÑÖµ·ÅÈë²»Í¬µÄÕ»ÖĞ
+		//éå†é“¾è¡¨æŠŠå€¼æ”¾å…¥ä¸åŒçš„æ ˆä¸­
 		while (cur != null) {
 			if (cur.value < pivot) {
 				smaller.push(cur);
@@ -40,7 +40,7 @@ public class DevideLinkedList {
 			}
 			cur = cur.next;
 		}
-		//Ö¸¶¨ĞÂµÄÁ´±íÍ·
+		//æŒ‡å®šæ–°çš„é“¾è¡¨å¤´
 		if (!smaller.isEmpty()) {
 			newHead = smaller.pop();
 		} else if (!same.isEmpty()) {
@@ -61,19 +61,19 @@ public class DevideLinkedList {
 			cur.next = bigger.pop();
 			cur = cur.next;
 		}
-		//Ö¸¶¨Á´±íÎ²²¿
+		//æŒ‡å®šé“¾è¡¨å°¾éƒ¨
 		cur.next = null;
 		return newHead;
 	}
 	
 	/**
-	 * Ê¹ÓÃ¶à¸öÖ¸ÕëÌæ´úÕ»À´¼ÇÂ¼£¬½«Ò»¸öÁ´±í²ğÎªÈı¸öÁ´±íÔÙ×éºÏÆğÀ´
+	 * ä½¿ç”¨å¤šä¸ªæŒ‡é’ˆæ›¿ä»£æ ˆæ¥è®°å½•ï¼Œå°†ä¸€ä¸ªé“¾è¡¨æ‹†ä¸ºä¸‰ä¸ªé“¾è¡¨å†ç»„åˆèµ·æ¥
 	 * @param head
 	 * @param pivot
 	 * @return
 	 */
 	public Node DevideByLinkedList(Node head, int pivot) {
-		//µ±Á´±íÎª¿Õ»òÕßÖ»ÓĞÒ»¸öÔªËØÊ±£¬Ö±½Ó·µ»Ø
+		//å½“é“¾è¡¨ä¸ºç©ºæˆ–è€…åªæœ‰ä¸€ä¸ªå…ƒç´ æ—¶ï¼Œç›´æ¥è¿”å›
 		if (head == null || head.next == null) {
 			return head;
 		}
@@ -86,7 +86,7 @@ public class DevideLinkedList {
 		Node sameHead = null;
 		Node sameCur = null;
 		Node cur = head;
-		//½«Ò»¸öÁ´±íÍ¨¹ıÒ»´Î±éÀú²ğ½âÎª3¸öÁ´±í
+		//å°†ä¸€ä¸ªé“¾è¡¨é€šè¿‡ä¸€æ¬¡éå†æ‹†è§£ä¸º3ä¸ªé“¾è¡¨
 		while (cur != null)	{
 			if (cur.value > pivot) {
 				if (biggerHead == null) {

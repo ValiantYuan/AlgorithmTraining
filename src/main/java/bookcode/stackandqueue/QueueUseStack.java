@@ -3,23 +3,23 @@ package bookcode.stackandqueue;
 import java.util.Stack;
 
 /**
- * ±àĞ´Ò»¸öÀà£¬ÓÃÁ½¸öÕ»ÊµÏÖ¶ÓÁĞ£¬ÊµÏÖ»ù±¾²Ù×÷
+ * ç¼–å†™ä¸€ä¸ªç±»ï¼Œç”¨ä¸¤ä¸ªæ ˆå®ç°é˜Ÿåˆ—ï¼Œå®ç°åŸºæœ¬æ“ä½œ
  * @author Valiant
- * Ë¼Â·£ºÁ½¸öÕ»£¬Ò»¸ö¼ÇÂ¼Ñ¹Èë£¬Ò»¸öÄæĞò¼ÇÂ¼Ñ¹Èë
- * Ö»ÓĞµ±queue±»pop¿Õºó£¬²Å»á½«stackÖĞµÄ¼ÇÂ¼Ò»´ÎĞÔÈ«²¿pushµ½queueÖĞ
+ * æ€è·¯ï¼šä¸¤ä¸ªæ ˆï¼Œä¸€ä¸ªè®°å½•å‹å…¥ï¼Œä¸€ä¸ªé€†åºè®°å½•å‹å…¥
+ * åªæœ‰å½“queueè¢«popç©ºåï¼Œæ‰ä¼šå°†stackä¸­çš„è®°å½•ä¸€æ¬¡æ€§å…¨éƒ¨pushåˆ°queueä¸­
  */
 public class QueueUseStack {
 	Stack<Integer> stack = new Stack<>();
 	Stack<Integer> queue = new Stack<>();
 	/**
-	 * Íù¶ÓÁĞÖĞ¼ÓÈëÔªËØ
+	 * å¾€é˜Ÿåˆ—ä¸­åŠ å…¥å…ƒç´ 
 	 * @param number
 	 */
 	public void add(int number) {
 		stack.push(number);
 	}
 	/**
-	 * È¡³ö×îÔç½øÈë¶ÓÁĞÖĞµÄÔªËØ
+	 * å–å‡ºæœ€æ—©è¿›å…¥é˜Ÿåˆ—ä¸­çš„å…ƒç´ 
 	 * @return
 	 */
 	public int poll() {
@@ -33,7 +33,7 @@ public class QueueUseStack {
 		return queue.pop();
 	}
 	/**
-	 * »ñÈ¡×îÔç½øÈë¶ÓÁĞÖĞµÄÔªËØµÄÖµ
+	 * è·å–æœ€æ—©è¿›å…¥é˜Ÿåˆ—ä¸­çš„å…ƒç´ çš„å€¼
 	 * @return
 	 */
 	public int peek() {

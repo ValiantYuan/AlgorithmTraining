@@ -10,7 +10,7 @@ public class DynamicProxyTest {
 		DynamicProxy dynamicProxy = new DynamicProxy(hello);
 		Hello helloProxy = dynamicProxy.getProxy();
 		/**
-		 * 这一步理论上可以把产生的$Proxy0.class保存下来，但是一直无法执行成功，JDK1.8
+		 * 杩欎竴姝ョ悊璁轰笂鍙互鎶婁骇鐢熺殑$Proxy0.class淇濆瓨涓嬫潵锛屼絾鏄竴鐩存棤娉曟墽琛屾垚鍔燂紝JDK1.8
 		 */
 		System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
 		helloProxy.hello();

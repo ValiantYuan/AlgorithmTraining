@@ -16,8 +16,8 @@ public class RandNode {
 		StringBuilder result = new StringBuilder();
 		String randValue;
 		while (cur != null) {
-			randValue = cur.rand == null ? "��" : (cur.rand.value + "");
-			result.append("��ǰ�ڵ�ֵΪ" + cur.value + ",randֵΪ" + randValue + "\n");
+			randValue = cur.rand == null ? "空" : (cur.rand.value + "");
+			result.append("当前节点值为" + cur.value + ",rand值为" + randValue + "\n");
 			cur = cur.next;
 		}
 		return result.toString();

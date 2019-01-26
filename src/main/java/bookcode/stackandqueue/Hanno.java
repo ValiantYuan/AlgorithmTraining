@@ -5,10 +5,10 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
 /**
- * µİ¹éºÍ·Çµİ¹é·½·¨ÊµÏÖººÅµËş£¬´Ó×óµ½ÓÒÒÆ¶¯£¬²»ÄÜÖ±½Ó´Ó×óµ½ ÓÒ»òÕß´ÓÓÒµ½×ó
+ * é€’å½’å’Œéé€’å½’æ–¹æ³•å®ç°æ±‰è¯ºå¡”ï¼Œä»å·¦åˆ°å³ç§»åŠ¨ï¼Œä¸èƒ½ç›´æ¥ä»å·¦åˆ° å³æˆ–è€…ä»å³åˆ°å·¦
  * @author Valiant
  *
- * ½âÌâ¹Ø¼üË¼Ïë£º
+ * è§£é¢˜å…³é”®æ€æƒ³ï¼š
  */
 public class Hanno {
 	private final String LEFT = "letf";
@@ -32,7 +32,7 @@ public class Hanno {
 	
 	
 	/**
-	 * µİ¹éµÄ·½·¨½â¾öººÅµËşÎÊÌâ
+	 * é€’å½’çš„æ–¹æ³•è§£å†³æ±‰è¯ºå¡”é—®é¢˜
 	 * @param num
 	 * @param from
 	 * @param to
@@ -68,7 +68,7 @@ public class Hanno {
 	}
 	
 	/**
-	 * ·Çµİ¹é·½·¨½â¾ö
+	 * éé€’å½’æ–¹æ³•è§£å†³
 	 * @param num
 	 * @param from
 	 * @param to
@@ -98,21 +98,21 @@ public class Hanno {
 	
 	/**
 	 * 
-	 * @param record ×¢Òâ£¬ÕâÀïÈç¹û½öÊÊÓÃAction ,ÊÇÎŞ·¨¸Ä±ärecordµÄÖµµÄ£¬ÒòÎª´«ÈëµÄÊÇActionÀàµÄÖ¸ÕëµÄÖµ£¬ĞŞ¸Äº¯ÊıÖĞrecordµÄÖµ£¬²¢²»»á¸Ä±äº¯ÊıÍârecordÖ¸ÕëµÄÖµ£¬ËùÒÔÒÀÈ»»áÖ¸ÏòAction.No
-	 * @param preNoAct ²»ÄÜ×÷ÎªÇ°ÏîµÄ¶¯×÷
-	 * @param nowAct µ±Ç°Ö´ĞĞµÄ¶¯×÷
-	 * @param fromStack Ô­Ê¼Õ»
-	 * @param toStack Ä¿±êÕ»
-	 * @param from ÆäÊµÎ»ÖÃ
-	 * @param to Ä¿±êÎ»ÖÃ
+	 * @param record æ³¨æ„ï¼Œè¿™é‡Œå¦‚æœä»…é€‚ç”¨Action ,æ˜¯æ— æ³•æ”¹å˜recordçš„å€¼çš„ï¼Œå› ä¸ºä¼ å…¥çš„æ˜¯Actionç±»çš„æŒ‡é’ˆçš„å€¼ï¼Œä¿®æ”¹å‡½æ•°ä¸­recordçš„å€¼ï¼Œå¹¶ä¸ä¼šæ”¹å˜å‡½æ•°å¤–recordæŒ‡é’ˆçš„å€¼ï¼Œæ‰€ä»¥ä¾ç„¶ä¼šæŒ‡å‘Action.No
+	 * @param preNoAct ä¸èƒ½ä½œä¸ºå‰é¡¹çš„åŠ¨ä½œ
+	 * @param nowAct å½“å‰æ‰§è¡Œçš„åŠ¨ä½œ
+	 * @param fromStack åŸå§‹æ ˆ
+	 * @param toStack ç›®æ ‡æ ˆ
+	 * @param from å…¶å®ä½ç½®
+	 * @param to ç›®æ ‡ä½ç½®
 	 * @return
 	 */
 	public static int  fromStackToStack(Action[] record, Action preNoAct, Action nowAct, Stack<Integer> fromStack,
 			Stack<Integer> toStack, String from, String to) {
 		/**
-		 * Á½¸öÔ­Ôò£º
-		 * 1.»¥ÄæµÄ¹ı³Ì²»ÄÜÏàÁÚ·¢Éú
-		 * 2.½øÕ»µÄÒªÇóÊÇĞ¡ÖµÔÚ´óÖµÉÏÃæ
+		 * ä¸¤ä¸ªåŸåˆ™ï¼š
+		 * 1.äº’é€†çš„è¿‡ç¨‹ä¸èƒ½ç›¸é‚»å‘ç”Ÿ
+		 * 2.è¿›æ ˆçš„è¦æ±‚æ˜¯å°å€¼åœ¨å¤§å€¼ä¸Šé¢
 		 * 
 		 */
 		if (record[0] != preNoAct && fromStack.peek() < toStack.peek()) {

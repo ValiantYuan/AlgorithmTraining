@@ -4,7 +4,7 @@ import bookcode.linkedlist.entity.DoubleNode;
 import bookcode.linkedlist.entity.Node;
 
 /**
- * ·´×ªµ¥ÏòºÍË«ÏòÁ´±í
+ * åè½¬å•å‘å’ŒåŒå‘é“¾è¡¨
  * @author Valiant
  *
  */

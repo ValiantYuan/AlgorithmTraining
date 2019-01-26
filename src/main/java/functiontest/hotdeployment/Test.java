@@ -4,16 +4,16 @@ import functiontest.hotdeployment.A;
 
 public class Test {
 	public static void main(String[] args) throws Exception {
-		//这里编译时会报错，找不到符号
+		//杩欓噷缂栬瘧鏃朵細鎶ラ敊锛屾壘涓嶅埌绗﹀彿
 //		new A();
 		/**
-		 * 如果A类不存在时，编译不会报错，运行时这里会报错ClassNotFoundException
+		 * 濡傛灉A绫讳笉瀛樺湪鏃讹紝缂栬瘧涓嶄細鎶ラ敊锛岃繍琛屾椂杩欓噷浼氭姤閿機lassNotFoundException
 		 * 
 		 */
 		((A) Class.forName("hotdeployment.A").newInstance()).say();
 		
 		/**
-		 * 如果A类存在，运行前把A.class删除，则这里会报错NoClassDefFoundError
+		 * 濡傛灉A绫诲瓨鍦紝杩愯鍓嶆妸A.class鍒犻櫎锛屽垯杩欓噷浼氭姤閿橬oClassDefFoundError
 		 */
 		new A().say();
 	}

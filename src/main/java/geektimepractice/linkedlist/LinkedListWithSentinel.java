@@ -3,7 +3,7 @@ package geektimepractice.linkedlist;
 import bookcode.linkedlist.entity.Node;
 
 /**
- * ´øÉÚ±øµÄÁ´±íÍ·Ê¼ÖÕÖ¸Ïòhead,´øÉÚ±øµÄÁ´±íÖ»ÄÜÊ¹µÃ¿Õ±í²åÈëÊ±ºÍÉ¾³ı×îºóÒ»¸ö½ÚµãµÄ²Ù×÷Í¬Ò»£¬¶ÔÓÚ¿Õ±íµÄÌØÊâ´¦ÀíÒÀÈ»²»ÄÜ±ÜÃâ
+ * å¸¦å“¨å…µçš„é“¾è¡¨å¤´å§‹ç»ˆæŒ‡å‘head,å¸¦å“¨å…µçš„é“¾è¡¨åªèƒ½ä½¿å¾—ç©ºè¡¨æ’å…¥æ—¶å’Œåˆ é™¤æœ€åä¸€ä¸ªèŠ‚ç‚¹çš„æ“ä½œåŒä¸€ï¼Œå¯¹äºç©ºè¡¨çš„ç‰¹æ®Šå¤„ç†ä¾ç„¶ä¸èƒ½é¿å…
  * @author Valiant
  *
  */
@@ -17,7 +17,7 @@ public class LinkedListWithSentinel {
 	}
 	
 	/**
-	 * Ìí¼ÓÒ»¸ö½Úµã,ÓëÃ»ÓĞÉÚ±øÏà±È£¬Ö±½Ó¿ÉÒÔÌí¼Ó£¬²»ĞèÒªÅĞ¶ÏheadÊÇ·ñÊÇ¿Õ
+	 * æ·»åŠ ä¸€ä¸ªèŠ‚ç‚¹,ä¸æ²¡æœ‰å“¨å…µç›¸æ¯”ï¼Œç›´æ¥å¯ä»¥æ·»åŠ ï¼Œä¸éœ€è¦åˆ¤æ–­headæ˜¯å¦æ˜¯ç©º
 	 * @param node
 	 */
 	public void add(Node node) {
@@ -28,7 +28,7 @@ public class LinkedListWithSentinel {
 		cur.next = node;
 	}
 	/**
-	 * É¾³ıÒ»¸ö½Úµã
+	 * åˆ é™¤ä¸€ä¸ªèŠ‚ç‚¹
 	 * @param node
 	 */
 	public void delete(Node node) {
@@ -44,7 +44,7 @@ public class LinkedListWithSentinel {
 		}
 	}
 	/**
-	 * ÊÇ·ñ°üº¬½Úµã£¬°üº¬·µ»ØµÚÒ»¸öÖµ
+	 * æ˜¯å¦åŒ…å«èŠ‚ç‚¹ï¼ŒåŒ…å«è¿”å›ç¬¬ä¸€ä¸ªå€¼
 	 * @param node
 	 * @return
 	 */
@@ -60,7 +60,7 @@ public class LinkedListWithSentinel {
 	}
 	
 	/**
-	 * ·µ»Ø¸ÃÖµËùÔÚµÄ½Úµã
+	 * è¿”å›è¯¥å€¼æ‰€åœ¨çš„èŠ‚ç‚¹
 	 * @param value
 	 * @return
 	 */

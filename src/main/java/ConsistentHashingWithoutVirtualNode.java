@@ -9,33 +9,33 @@ import java.util.TreeMap;
 public class ConsistentHashingWithoutVirtualNode
 {
     /**
-     * ´ıÌí¼ÓÈëHash»·µÄ·şÎñÆ÷ÁĞ±í
+     * å¾…æ·»åŠ å…¥Hashç¯çš„æœåŠ¡å™¨åˆ—è¡¨
      */
     private static String[] servers = {"192.168.0.0:111", "192.168.0.1:111", "192.168.0.2:111",
             "192.168.0.3:111", "192.168.0.4:111"};
     
     /**
-     * key±íÊ¾·şÎñÆ÷µÄhashÖµ£¬value±íÊ¾·şÎñÆ÷µÄÃû³Æ
+     * keyè¡¨ç¤ºæœåŠ¡å™¨çš„hashå€¼ï¼Œvalueè¡¨ç¤ºæœåŠ¡å™¨çš„åç§°
      */
     private static SortedMap<Integer, String> sortedMap = 
             new TreeMap<Integer, String>();
     
     /**
-     * ³ÌĞò³õÊ¼»¯£¬½«ËùÓĞµÄ·şÎñÆ÷·ÅÈësortedMapÖĞ
+     * ç¨‹åºåˆå§‹åŒ–ï¼Œå°†æ‰€æœ‰çš„æœåŠ¡å™¨æ”¾å…¥sortedMapä¸­
      */
     static
     {
         for (int i = 0; i < servers.length; i++)
         {
             int hash = getHash(servers[i]);
-            System.out.println("[" + servers[i] + "]¼ÓÈë¼¯ºÏÖĞ, ÆäHashÖµÎª" + hash);
+            System.out.println("[" + servers[i] + "]åŠ å…¥é›†åˆä¸­, å…¶Hashå€¼ä¸º" + hash);
             sortedMap.put(hash, servers[i]);
         }
         System.out.println();
     }
     
     /**
-     * Ê¹ÓÃFNV1_32_HASHËã·¨¼ÆËã·şÎñÆ÷µÄHashÖµ,ÕâÀï²»Ê¹ÓÃÖØĞ´hashCodeµÄ·½·¨£¬×îÖÕĞ§¹ûÃ»Çø±ğ 
+     * ä½¿ç”¨FNV1_32_HASHç®—æ³•è®¡ç®—æœåŠ¡å™¨çš„Hashå€¼,è¿™é‡Œä¸ä½¿ç”¨é‡å†™hashCodeçš„æ–¹æ³•ï¼Œæœ€ç»ˆæ•ˆæœæ²¡åŒºåˆ« 
      */
     private static int getHash(String str)
     {
@@ -49,25 +49,25 @@ public class ConsistentHashingWithoutVirtualNode
         hash ^= hash >> 17;
         hash += hash << 5;
         
-        // Èç¹ûËã³öÀ´µÄÖµÎª¸ºÊıÔòÈ¡Æä¾ø¶ÔÖµ
+        // å¦‚æœç®—å‡ºæ¥çš„å€¼ä¸ºè´Ÿæ•°åˆ™å–å…¶ç»å¯¹å€¼
         if (hash < 0)
             hash = Math.abs(hash);
         return hash;
     }
     
     /**
-     * µÃµ½Ó¦µ±Â·ÓÉµ½µÄ½áµã
+     * å¾—åˆ°åº”å½“è·¯ç”±åˆ°çš„ç»“ç‚¹
      */
     private static String getServer(String node)
     {
-        // µÃµ½´øÂ·ÓÉµÄ½áµãµÄHashÖµ
+        // å¾—åˆ°å¸¦è·¯ç”±çš„ç»“ç‚¹çš„Hashå€¼
         int hash = getHash(node);
-        // µÃµ½´óÓÚ¸ÃHashÖµµÄËùÓĞMap
+        // å¾—åˆ°å¤§äºè¯¥Hashå€¼çš„æ‰€æœ‰Map
         SortedMap<Integer, String> subMap = 
                 sortedMap.tailMap(hash);
-        // µÚÒ»¸öKey¾ÍÊÇË³Ê±Õë¹ıÈ¥Àënode×î½üµÄÄÇ¸ö½áµã
+        // ç¬¬ä¸€ä¸ªKeyå°±æ˜¯é¡ºæ—¶é’ˆè¿‡å»ç¦»nodeæœ€è¿‘çš„é‚£ä¸ªç»“ç‚¹
         Integer i = subMap.firstKey();
-        // ·µ»Ø¶ÔÓ¦µÄ·şÎñÆ÷Ãû³Æ
+        // è¿”å›å¯¹åº”çš„æœåŠ¡å™¨åç§°
         return subMap.get(i);
     }
     
@@ -75,7 +75,7 @@ public class ConsistentHashingWithoutVirtualNode
     {
         String[] nodes = {"127.0.0.1:1111", "221.226.0.1:2222", "10.211.0.1:3333"};
         for (int i = 0; i < nodes.length; i++)
-            System.out.println("[" + nodes[i] + "]µÄhashÖµÎª" + 
-                    getHash(nodes[i]) + ", ±»Â·ÓÉµ½½áµã[" + getServer(nodes[i]) + "]");
+            System.out.println("[" + nodes[i] + "]çš„hashå€¼ä¸º" + 
+                    getHash(nodes[i]) + ", è¢«è·¯ç”±åˆ°ç»“ç‚¹[" + getServer(nodes[i]) + "]");
     }
 }

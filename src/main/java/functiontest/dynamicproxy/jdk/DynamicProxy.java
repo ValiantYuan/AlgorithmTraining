@@ -9,21 +9,21 @@ public class DynamicProxy implements InvocationHandler{
 		this.target = target;
 	}
 	/**
-	 * @param porxy£ºthe proxy instance that the method was invoked on, 
-	 * ¼´Í¨¹ıgetProxy()»ñÈ¡µ½µÄÕâ¸öProxy¶ÔÏó£¬¼òµ¥Ëµ¾ÍÊÇĞéÄâ»ú²úÉúµÄ$Proxy0.class´úÀíÀàµÄÊµÀı
-	 * @param method:ÏëÒªÖ´ĞĞµÄ·½·¨£¬°ó¶¨ÁË·½·¨ËùÔÚµÄÀà£¬¶ø²»ÊÇÊµÀı¶ÔÏó
-	 * @param args: method·½·¨ĞèÒªµÄ²ÎÊıÊı×é
-	 * proxy¶ÔÏóµÄ×÷ÓÃ£º
-	 * 1.¿ÉÒÔÊ¹ÓÃ·´Éä»ñÈ¡´úÀí¶ÔÏóµÄĞÅÏ¢ proxy.getClass().getName()
-	 * 2.¿ÉÒÔ½«proxy¶ÔÏó×÷Îªinvoke()·½·¨µÄ·µ»ØÖµ£¬½øĞĞÁ¬ĞøµÄµ÷ÓÃ¡£helloProxy.say("jack").say("rose");
+	 * @param porxyï¼šthe proxy instance that the method was invoked on, 
+	 * å³é€šè¿‡getProxy()è·å–åˆ°çš„è¿™ä¸ªProxyå¯¹è±¡ï¼Œç®€å•è¯´å°±æ˜¯è™šæ‹Ÿæœºäº§ç”Ÿçš„$Proxy0.classä»£ç†ç±»çš„å®ä¾‹
+	 * @param method:æƒ³è¦æ‰§è¡Œçš„æ–¹æ³•ï¼Œç»‘å®šäº†æ–¹æ³•æ‰€åœ¨çš„ç±»ï¼Œè€Œä¸æ˜¯å®ä¾‹å¯¹è±¡
+	 * @param args: methodæ–¹æ³•éœ€è¦çš„å‚æ•°æ•°ç»„
+	 * proxyå¯¹è±¡çš„ä½œç”¨ï¼š
+	 * 1.å¯ä»¥ä½¿ç”¨åå°„è·å–ä»£ç†å¯¹è±¡çš„ä¿¡æ¯ proxy.getClass().getName()
+	 * 2.å¯ä»¥å°†proxyå¯¹è±¡ä½œä¸ºinvoke()æ–¹æ³•çš„è¿”å›å€¼ï¼Œè¿›è¡Œè¿ç»­çš„è°ƒç”¨ã€‚helloProxy.say("jack").say("rose");
 	 */
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		/**
-		 * $Proxy0.class´úÀíÀàÖØĞ´ÁËÄ¿±êtarget¾ßÓĞµÄ½Ó¿Ú·½·¨£¬
-		 * Í¬Ê±»¹ÖØĞ´ÁËObjectÀàÖĞµÄtoString(),hashCode()ºÍequals()·½·¨£¬
-		 * ÖØĞ´Âß¼­ÊÇµ÷ÓÃÁËInvocationHandlerµÄinvoke()·½·¨£¬
-		 * ËùÒÔÈç¹ûÔÚinvoke()·½·¨ÖĞÖ±½Ó»òÕß¼ä½Óµ÷ÓÃÕâĞ©·½·¨£¬»áµ¼ÖÂµİ¹éµ÷ÓÃÖ±µ½Õ»Òç³ö
+		 * $Proxy0.classä»£ç†ç±»é‡å†™äº†ç›®æ ‡targetå…·æœ‰çš„æ¥å£æ–¹æ³•ï¼Œ
+		 * åŒæ—¶è¿˜é‡å†™äº†Objectç±»ä¸­çš„toString(),hashCode()å’Œequals()æ–¹æ³•ï¼Œ
+		 * é‡å†™é€»è¾‘æ˜¯è°ƒç”¨äº†InvocationHandlerçš„invoke()æ–¹æ³•ï¼Œ
+		 * æ‰€ä»¥å¦‚æœåœ¨invoke()æ–¹æ³•ä¸­ç›´æ¥æˆ–è€…é—´æ¥è°ƒç”¨è¿™äº›æ–¹æ³•ï¼Œä¼šå¯¼è‡´é€’å½’è°ƒç”¨ç›´åˆ°æ ˆæº¢å‡º
 		 */
 		//System.out.println(proxy.toString());
 		before();
@@ -38,7 +38,7 @@ public class DynamicProxy implements InvocationHandler{
 		System.out.println("after say hello");
 	}
 	/**
-	 * ºöÂÔ±àÒëÊ±¾¯¸æ£¬ÒòÎªnewProxyInstance·µ»ØµÄÊÇÒ»¸öObject£¬ÕâÀïÇ¿ÖÆ×ª»»³ÉÎªÁËT
+	 * å¿½ç•¥ç¼–è¯‘æ—¶è­¦å‘Šï¼Œå› ä¸ºnewProxyInstanceè¿”å›çš„æ˜¯ä¸€ä¸ªObjectï¼Œè¿™é‡Œå¼ºåˆ¶è½¬æ¢æˆä¸ºäº†T
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
