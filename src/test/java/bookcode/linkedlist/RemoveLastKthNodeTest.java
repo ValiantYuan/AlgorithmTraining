@@ -1,4 +1,4 @@
-package linkedlist;
+package bookcode.linkedlist;
 
 import static org.junit.Assert.assertEquals;
 
