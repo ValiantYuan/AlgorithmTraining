@@ -6,6 +6,8 @@ import java.util.ArrayList;
  * 
  * @author valiant
  * 假设对于字母进行trie结构建立
+ * 创建Trie树的时间复杂度是O(n)，n是插入单词的总字符数
+ * 匹配时间复杂度O(k),k是需要匹配字符串的长度
  */
 
 public class Trie {
@@ -30,7 +32,11 @@ public class Trie {
 		}
 		curNode.isEndingChar = true;
 	}
-			
+	
+	/**
+	 * 查找一个单词，可以从根节点根据单词的字符进行遍历
+	 * @param text
+	 */
 	public void find(char[] text) {
 		results.clear();
 		TrieNode curNode = root;
