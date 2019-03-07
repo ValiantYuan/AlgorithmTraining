@@ -1,4 +1,5 @@
 package utils;
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,7 +10,7 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 public class ConvertFileFormat {
-	private static final String rootPath = "E:\\Learnning\\JAVA CODE\\eclipse-workspace\\EclipseLearnning\\InterviewCode\\src";
+	private static final String rootPath = "/Users/chenlianda/code/framework/src";
 	
 	public static void main(String[] args) throws Exception {
 //		new ConvertFileFormat().convertUseFileReader(new File("/Users/chenlianda/code/algorithm/AlgorithmTraining/src/main/java/utils/ConvertFileFormat.java"));
@@ -39,24 +40,26 @@ public class ConvertFileFormat {
 		File newFile = new File(rename);
 		if (!file.exists()) {
 			if (!newFile.createNewFile()) {
-				System.out.println("create faile");
+				System.out.println("create failed");
 				return;
 			}
 		}
 		//中文测试
-		FileOutputStream fileOutputStream = new FileOutputStream(newFile);
+//		FileOutputStream fileOutputStream = new FileOutputStream(newFile);
+//		BufferedReader bufferedReader = new BufferedReader(in);
+//		FileInputReader fil = new FileInputStream(file);
+//		byte[] bytes = new byte[1024*1024];
+		InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file), "GBK");
+		BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+		OutputStreamWriter ouptOutputStreamWriter = new OutputStreamWriter(new FileOutputStream(newFile), "UTF-8");
+		BufferedWriter bufferedWriter = new BufferedWriter(ouptOutputStreamWriter);
 		
-		FileInputStream fileInputStream = new FileInputStream(file);
-		byte[] bytes = new byte[1024*1024];
-		int hasRead = 0;
-		//这个方法有问题， GBK格式下的文件结束符跟UTF8的不一样
-		while ((hasRead = fileInputStream.read(bytes)) > 0) {
-			String fileString = new String(bytes, "GBK");
-			byte[] outPuts = fileString.getBytes("UTF-8");
-			fileOutputStream.write(outPuts);
+		String line = null;
+		while ((line = bufferedReader.readLine()) != null) {
+			bufferedWriter.write(line + "\n");
 		}
-		fileInputStream.close();
-		fileOutputStream.close();
+		bufferedReader.close();
+		bufferedWriter.close();
 		file.delete();
 		newFile.renameTo(new File(fileNameString));
 	}
