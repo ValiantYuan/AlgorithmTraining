@@ -12,10 +12,11 @@ package leetcode.primarytest.dynamicplanning;
 
 无论 F 的初始值如何，你确定 F 的值的最小移动次数是多少？
  * @author Valiant
- *
+ * 太难了，暂时不做
  */
 public class SuperEggDrop {
     public int superEggDrop(int K, int N) {
         int count = 0;
+        return count;
     }	
 }
