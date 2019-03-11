@@ -10,10 +10,19 @@ public class CharacterMatchTest {
 	public void test() {
 //		String s1 = "abbabaaaabbbaabaabaabbbaaabaaaaaabbbabbaabbabaabbabaaaaababbabbaaaaabbbbaaabbaaabbbbabbbbaaabbaaaaababbaababbabaaabaabbbbbbbaabaabaabbbbababbbababbaaababbbabaabbaaabbbba";
 //		String s2 = "bbbbbbaa";
-		String s1 = "bbababaaaababbaabbbabbbaaabbbaaababbabaabbaaaaabbaaabbbbaaabaabbaababbbaabaaababbaaabbbbbbaabbbbbaaabbababaaaaabaabbbababbaababaabbaa";
-		String s2 = "bbabba";
-		CharacterMatch characterMatch = new CharacterMatch();
-		assertEquals(-1, characterMatch.kmp(s1.toCharArray(), s1.length(), s2.toCharArray(), s2.length()));
+		for (int i = 0; i < 10000; i++) {
+			
+			String s1 = "bbababaaaababbaabbbabbbaaabbbaaababbabaabbaaaaabbaaabbbbaaabaabbaababbbaabaaababbaaabbbbbbaabbbbbaaabbababaaaaabaabbbababbaababaabbaa";
+			String s2 = "bbabba";
+			try {
+				Thread.sleep(100);
+				System.out.println(i + "th waiting");
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			CharacterMatch characterMatch = new CharacterMatch();
+			assertEquals(-1, characterMatch.kmp(s1.toCharArray(), s1.length(), s2.toCharArray(), s2.length()));
+		}
 	}
 
 }

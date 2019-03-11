@@ -11,7 +11,6 @@ import bookcode.linkedlist.entity.Node;
 public class ReverseLinkedListUtil {
 
 	public Node reverseLinkedList(Node head) {
-		
 		Node pre = null;
 		Node next = null;
 		while (head != null) {
