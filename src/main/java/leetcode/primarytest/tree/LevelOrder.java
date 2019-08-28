@@ -1,10 +1,8 @@
 package leetcode.primarytest.tree;
-
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
 
 public class LevelOrder {
     public List<List<Integer>> levelOrder(TreeNode root) {
