@@ -1,8 +1,8 @@
-package leetcode.primarytest.linkedlist;
+package basestructure;
 
 public 	class ListNode {
-	int val;
-	ListNode next;
+	public int val;
+	public ListNode next;
 	public ListNode(int x) {
 		// TODO Auto-generated constructor stub
 		this.val = x;

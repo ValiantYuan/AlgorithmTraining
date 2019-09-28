@@ -48,7 +48,7 @@ public class QuickSort {
 		}
 		tmp = a[j];
 		a[j] = a[end];
-		a[end] = a[j];
+		a[end] = tmp;
 		return j;
 	}
 }

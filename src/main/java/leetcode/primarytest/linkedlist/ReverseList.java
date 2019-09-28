@@ -1,5 +1,7 @@
 package leetcode.primarytest.linkedlist;
 
+import basestructure.ListNode;
+
 /**
  * 反转一个单链表。
 
@@ -13,5 +15,30 @@ package leetcode.primarytest.linkedlist;
  *
  */
 public class ReverseList {
-
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode next;
+        while(head != null) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+        //递归的方法特别慢
+        // if(head == null) return null;
+        // ListNode node,res;
+        // res = reverseList(head.next);
+        // if(res != null) {
+        //     node = res;
+        //     while(node.next != null) {
+        //       node = node.next;
+        //     }
+        //     node.next = head;
+        //     head.next = null;
+        //     return res;
+        // } else {
+        //     return head;
+        // }
+    }
 }
