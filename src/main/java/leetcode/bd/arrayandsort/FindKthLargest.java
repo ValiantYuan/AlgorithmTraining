@@ -1,4 +1,4 @@
-package leetcode.bd.sortandarray;
+package leetcode.bd.arrayandsort;
 
 /**
  * @NAME: FindKthLargest

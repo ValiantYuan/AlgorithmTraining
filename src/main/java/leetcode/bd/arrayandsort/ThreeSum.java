@@ -1,4 +1,4 @@
-package leetcode.bd.sortandarray;
+package leetcode.bd.arrayandsort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
