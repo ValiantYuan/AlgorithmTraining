@@ -31,6 +31,7 @@ public class LetterCombinations {
         }
         else {
             char num = nums[pos];
+            //从map中去除数字对应的字母列表
             ArrayList<Character> letters = numsMap.get(num);
             for (int j = 0; j < letters.size(); j++) {
                 //把当前字符加入到字符串中

@@ -6,7 +6,7 @@ import basestructure.ListNode;
  * @NAME: GetIntersectionNode
  * @USER: valiant
  * @DATE: 2019-09-28
- * @DESCRITION:
+ * @DESCRITION: 编写一个程序，找到两个单链表相交的起始节点。
  **/
 public class GetIntersectionNode {
 

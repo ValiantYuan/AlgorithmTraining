@@ -28,6 +28,7 @@ public class Backbag {
      * 对于每一个物品都判断放入或者不放入两种情况，超重了则回溯处理
      * @param index 表示当前遍历到第几个物品
      * @param weight 表示当前袋子中的总重量
+     * 调用形式为put(0, 0);
      */
     public void put(int index, int weight) {
         if (index == items.length || weight == capacity) {
@@ -36,15 +37,12 @@ public class Backbag {
             }
             return;
         }
-        if (mem[index][weight]) {
-            return;
-        }
-        mem[index][weight] = true;
         //不把第index个物品放进袋子中
         put(index + 1, weight);
         //如果把第index个物品放入袋子中没有超重，则把改物品放入袋子中
-        if (weight + items[index - 1] <= capacity) {
-            put(index + 1, weight + items[index - 1]);
+        if (weight + items[index] <= capacity) {
+            put(index + 1, weight + items[index]);
         }
+        //注意，如果放入当前物品导致超重，则会直接结束本次调用，相当于发生了回溯
     }
 }

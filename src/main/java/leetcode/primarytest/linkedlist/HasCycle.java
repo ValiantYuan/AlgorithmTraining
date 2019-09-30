@@ -6,7 +6,7 @@ import basestructure.ListNode;
  * @NAME: HasCycle
  * @USER: valiant
  * @DATE: 2019-09-28
- * @DESCRITION:
+ * @DESCRITION: 判断链表是否有环形存在
  **/
 public class HasCycle {
     public boolean hasCycle(ListNode head) {

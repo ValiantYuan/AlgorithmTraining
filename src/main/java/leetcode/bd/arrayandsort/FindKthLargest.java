@@ -4,7 +4,7 @@ package leetcode.bd.arrayandsort;
  * @NAME: FindKthLargest
  * @USER: valiant
  * @DATE: 2019-09-28
- * @DESCRITION:
+ * @DESCRITION: 找到第k大的数字
  **/
 public class FindKthLargest {
     public int findKthLargest(int[] nums, int k) {

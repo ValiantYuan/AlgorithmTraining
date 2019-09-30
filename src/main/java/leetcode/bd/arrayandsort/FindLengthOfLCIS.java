@@ -4,7 +4,7 @@ package leetcode.bd.arrayandsort;
  * @NAME: FindLengthOfLCIS
  * @USER: valiant
  * @DATE: 2019-09-28
- * @DESCRITION:
+ * @DESCRITION: 最长的单调递增数组的长度
  **/
 public class FindLengthOfLCIS {
     public int findLengthOfLCIS(int[] nums) {
