@@ -8,6 +8,7 @@ import java.util.List;
  * @USER: valiant
  * @DATE: 2019-09-23
  * @DESCRITION: 给定一串数组，复原所有的ip组合
+ * https://leetcode-cn.com/problems/restore-ip-addresses/
  **/
 public class RecoverIpAddress {
     public List<String> restoreIpAddresses(String s) {

@@ -6,7 +6,7 @@ import java.util.HashSet;
  * @NAME: IsHappy
  * @USER: valiant
  * @DATE: 2019-10-18
- * @DESCRITION:
+ * @DESCRITION: https://leetcode-cn.com/problems/happy-number/
  **/
 public class IsHappy {
     public boolean isHappy(int n) {
