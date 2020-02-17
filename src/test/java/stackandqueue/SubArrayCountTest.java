@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import bookcode.stackandqueue.SubArrayCount;
+import bookcode.marchonoffer.stackandqueue.SubArrayCount;
 
 public class SubArrayCountTest {
 

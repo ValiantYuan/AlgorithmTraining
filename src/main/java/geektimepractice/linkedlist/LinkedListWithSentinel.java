@@ -1,6 +1,6 @@
 package geektimepractice.linkedlist;
 
-import bookcode.linkedlist.entity.Node;
+import bookcode.marchonoffer.entity.Node;
 
 /**
  * 带哨兵的链表头始终指向head,带哨兵的链表只能使得空表插入时和删除最后一个节点的操作同一，对于空表的特殊处理依然不能避免

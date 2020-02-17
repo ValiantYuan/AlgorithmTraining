@@ -1,6 +1,6 @@
 package geektimepractice.linkedlist;
 
-import bookcode.linkedlist.entity.Node;
+import bookcode.marchonoffer.entity.Node;
 
 public class LinkedListWithoutSentinel {
 Node head;

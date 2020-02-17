@@ -1,4 +1,9 @@
 package geektimepractice.sort;
+
+import java.util.Arrays;
+
+import bookcode.grokkingalgorithms.Chapter4;
+
 /**
  * 快速排序
  * 原地算法，不稳地排序，时间复杂度O(nlogn)
@@ -16,11 +21,11 @@ public class QuickSort {
 	 * @param end 排序区间在数组中的终止位置
 	 */
 	public void sort(int[] a, int start, int end) {
-		if (start == end) {
+		if (start >= end) {
 			return;
 		}
 		int pivot = partition(a, start, end);
-		sort(a, start, pivot);
+		sort(a, start, pivot - 1);
 		sort(a, pivot + 1, end);
 	}
 	/**
@@ -50,5 +55,11 @@ public class QuickSort {
 		a[j] = a[end];
 		a[end] = tmp;
 		return j;
+	}
+
+	public static void main(String[] args) {
+		int[] array = {12, 4, 5, 3, 2, 15, 42, 17, 7, 51};
+		new QuickSort().quickSort(array);
+		System.out.println(Arrays.toString(array));
 	}
 }
