@@ -2,7 +2,7 @@ package geektimepractice.trie;
 
 import org.junit.Test;
 
-public class TrieTest {
+public class TrieTests {
 
 	@Test
 	public void test() {
