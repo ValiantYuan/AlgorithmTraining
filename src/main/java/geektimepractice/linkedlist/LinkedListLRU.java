@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  */
 public class LinkedListLRU implements LRU <Integer, DoubleNode> {
-
 	//用Integer标示的标号代表网页编号，String代表网页内容
 	public static DoubleNode head= null;
 	public static DoubleNode tail = null;
