@@ -13,11 +13,62 @@ import java.util.List;
 public class RecoverIpAddress {
     public List<String> restoreIpAddresses(String s) {
         List<String> list = new ArrayList<String>();
-        backtrack(list, new StringBuilder(""), 0, 0, s);
+        backtrack(list, new StringBuilder(), 0, 0, s);
         return list;
 
     }
 
+    public static void main(String[] args) {
+//        List<String> result = new RecoverIpAddress().getIps("123456");
+//        System.out.println(result);
+        List<String> result = new RecoverIpAddress().restoreIpAddresses("123456");
+        System.out.println(result);
+    }
+
+    List<String> result = new ArrayList<>();
+    List<String> getIps(String numbers) {
+        int[] ips = new int[4];
+        int[] values = new int[numbers.length()];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = Integer.parseInt(numbers.substring(i, i + 1));
+        }
+
+        checkIfValid(values, 0, 0, ips);
+        return result;
+    }
+
+    public void checkIfValid(int[] numbers, int start, int index, int[] ips) {
+        if (ips.length == index && start == numbers.length) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < ips.length; i++) {
+                if (i != 3) {
+                    sb.append(ips[i]).append('.');
+                } else {
+                    sb.append(ips[i]);
+                }
+            }
+            result.add(sb.toString());
+            return;
+        }
+        if (index >= ips.length || start >= numbers.length) {
+            return;
+        }
+        // 一位数肯定可以做ip
+        ips[index] = numbers[start];
+        checkIfValid(numbers, start + 1, index + 1, ips);
+        // 两位数不能是0开头
+        if (start + 1 < numbers.length && numbers[start] != 0) {
+            ips[index] = numbers[start] * 10 + numbers[start + 1];
+            checkIfValid(numbers, start + 2, index + 1, ips);
+        }
+        // 三位数不能小于100，大于255
+        if (start + 2< numbers.length
+        && numbers[start] * 100 + numbers[start + 1] * 10 + numbers[start + 2] <= 255
+        && numbers[start] * 100 + numbers[start + 1] * 10 + numbers[start + 2] >= 100) {
+            ips[index] = numbers[start] * 100 + numbers[start + 1] * 10 + numbers[start + 2];
+            checkIfValid(numbers, start + 3, index + 1, ips);
+        }
+    }
 
     /**
      *

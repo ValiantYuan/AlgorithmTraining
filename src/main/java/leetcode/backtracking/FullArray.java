@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @ClassName Test
- * @Description:
+ * @Description: 数组的全排列
  * @Author: YuanQi
  * @Date: 2020/3/29
  */
