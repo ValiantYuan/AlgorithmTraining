@@ -43,4 +43,26 @@ public class LengthOfLIS {
         }
         return max;
     }
+
+    public int lengthOfLIS_20210304(int[] nums) {
+        // dp[i]长度为i+1的最大递增子序列的最大值，显然dp[i]小dp[i+1},所以dp[]是一个单调递增数组
+        int[] dp = new int[nums.length];
+        for (int i = 0; i < dp.length; i++) {
+            dp[i] = Integer.MAX_VALUE;
+        }
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int low = 0;
+            int high = max;
+            while (low < high) {
+                int mid = low + (high - low) / 2;
+                if (nums[i] <= dp[mid]) {
+                    high = mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+        }
+        return -1;
+    }
 }

@@ -45,13 +45,18 @@ public class Rob {
     }
 
     public static int getMax1(int[] nums) {
-    	int[] dp = new int[nums.length];
-    	dp[0] = nums[0];
-    	dp[1] = Math.max(nums[0], nums[1]);
-		for (int i = 2; i < nums.length; i++) {
-			dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
-		}
-		return dp[nums.length - 1];
-	}
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+
+
+        // 在当前房屋i,如果不偷i，那么dp[i] = dp[i - 1]
+        // 如果决定要偷i，那么i-1就一定不能偷，所以不偷i-1时，dp[i - 1]的最大值等于dp[i -2],dp[i]= dp[i - 2] + nums[i]
+        // 取二者中比较大的值即可
+        for (int i = 2; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+        }
+        return dp[nums.length - 1];
+    }
 
 }

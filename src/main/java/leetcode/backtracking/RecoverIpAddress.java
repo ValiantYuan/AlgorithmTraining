@@ -21,7 +21,7 @@ public class RecoverIpAddress {
     public static void main(String[] args) {
 //        List<String> result = new RecoverIpAddress().getIps("123456");
 //        System.out.println(result);
-        List<String> result = new RecoverIpAddress().restoreIpAddresses("123456");
+        List<String> result = new RecoverIpAddress().restoreIpAddresses("1234056");
         System.out.println(result);
     }
 
@@ -95,7 +95,7 @@ public class RecoverIpAddress {
             }
             int num = Integer.valueOf(s.substring(index, index + i));
             //满足条件的数组才能加入到ip字符串中
-            if (i == 1 || (i == 2 && i >= 10 && i <= 99) || (i == 3 && i >= 100 && i <= 255)) {
+            if (i == 1 || (i == 2 && num >= 10 && num <= 99) || (i == 3 && num >= 100 && num <= 255)) {
                 stringBuilder.append(num);
                 //前三层字符串都要加上"."
                 if (level < 3) {

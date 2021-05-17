@@ -14,7 +14,7 @@ import java.util.List;
 public class NumberToAlphabet {
 
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3};
+        int[] numbers = {1, 2, 2, 0, 2, 3};
         new NumberToAlphabet().addResult(numbers, new StringBuilder(), 0);
         System.out.println(result);
     }
@@ -33,6 +33,10 @@ public class NumberToAlphabet {
             result.add(str.toString());
             return;
         }
+        if (numbers[pos] == 0) {
+            return;
+        }
+
         addResult(numbers, str.append(alphabets[numbers[pos]]), pos + 1);
         // 回溯
         str.deleteCharAt(str.length() - 1);
@@ -44,6 +48,8 @@ public class NumberToAlphabet {
         }
         return;
     }
+
+
 
 
 
